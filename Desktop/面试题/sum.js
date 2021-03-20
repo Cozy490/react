@@ -19,18 +19,34 @@
 // console.log(add(1));
 // console.log(add(1)(2)(3));
 
-function sum() {
-  const args = Array.prototype.slice.call(arguments)
-  let saveArgs = function () {
-    args.push(...arguments)
-    return saveArgs
-  }
-  saveArgs.toString = function () {
-    return args.reduce((pre,next)=>{
-      return pre+next
-    })
-  }
-  return saveArgs
+// function sum() {
+//   const args = Array.prototype.slice.call(arguments)
+//   let saveArgs = function () {
+//     args.push(...arguments)
+//     return saveArgs
+//   }
+//   saveArgs.toString = function () {
+//     return args.reduce((pre,next)=>{
+//       return pre+next
+//     })
+//   }
+//   return saveArgs
+// }
+// console.log(sum(1));
+// console.log(sum(1)(2)(3));
+
+var a = 'sss'
+var obj = {
+  a : 'ppp',
+  c: function (){
+    console.log(this.a);
+   } 
+   
 }
-console.log(sum(1));
-console.log(sum(1)(2)(3));
+
+obj.c()
+
+function foo(){
+  new Promise.resolve(foo())
+}
+foo()

@@ -7,7 +7,25 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <input type="text" id="ipt">
+  <div style="width: 200px;height: 200px;background-color: red;" id="drag"  draggable="true"></div>
 </body>
 <script src="./debounce.js"></script>
+<script>
+  const ipt = document.getElementById('ipt')
+  // ipt.addEventListener('keyup',function(e){
+  //   console.log(ipt.value)
+  // })
+  ipt.addEventListener('keyup',debounce(()=>{
+    console.log(ipt.value)
+  },1000))
+
+  const drag = document.getElementById('drag')
+  drag.addEventListener('drag',throttle((e)=>{
+    console.log(e.offsetX,e.offsetY);
+  },100))
+  // drag.addEventListener('drag',function(e){
+  //   console.log(e.offsetX,e.offsetY);
+  // })
+</script>
 </html>
